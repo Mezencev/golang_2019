@@ -12,7 +12,7 @@ import (
 // const FILE for json
 const (
 	FILE = "./users.json"
-	URL  = "https://dog.ceo/api/breeds/image/random"
+	URL  = "https://gist.githubusercontent.com/Mezencev/95381fceb309ef5bdaccfaafcbcc61d0/raw/11d3d4c6363b9ae631c225711e16a743590fb0b5/users.json"
 )
 
 var myClient = &http.Client{Timeout: 10 * time.Second}
@@ -57,15 +57,15 @@ func searchValue(data map[string]interface{}, key string) string {
 	return fmt.Sprintf("Key: not found")
 }
 
-func main() {
-	var f, u NameReader = &file{}, &url{}
-	fmt.Println("file=", f.Read(FILE, "firstName"))
-	fmt.Println("url=", u.Read(URL, "status"))
-}
-
 func checkError(e error) {
 	if e != nil {
 		log.Fatal("Fatal error:", e)
 		panic(e)
 	}
+}
+
+func main() {
+	var f, u NameReader = &file{}, &url{}
+	fmt.Println("file=", f.Read(FILE, "firstName"))
+	fmt.Println("url=", u.Read(URL, "firstName"))
 }
