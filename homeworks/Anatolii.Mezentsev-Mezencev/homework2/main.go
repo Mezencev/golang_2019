@@ -25,7 +25,7 @@ type NameReader interface {
 // file struct
 type file struct{}
 
-// file struct
+// url struct
 type url struct{}
 
 // DataJSON interface for data
